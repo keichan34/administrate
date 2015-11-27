@@ -11,6 +11,10 @@ module Administrate
           dashboard.class.to_s.scan(/(.+)Dashboard/).first.first.underscore
       end
 
+      def resource_class
+        resource_name.camelize.safe_constantize
+      end
+
       protected
 
       def attribute_field(dashboard, resource, attribute_name, page)
